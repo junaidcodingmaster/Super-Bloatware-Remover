@@ -1,0 +1,14 @@
+com.miui.analytics
+com.miui.backup
+com.miui.bugreport
+com.miui.cloudservice
+com.miui.cloudbackup
+com.miui.securitycenter
+com.xiaomi.supplier
+com.miui.weather2
+com.xiaomi.micloudsdk
+com.xiaomi.miservice
+com.xiaomi.mistat
+com.xiaomi.wallet
+com.xiaomi.shop
+com.xiaomi.bugreport

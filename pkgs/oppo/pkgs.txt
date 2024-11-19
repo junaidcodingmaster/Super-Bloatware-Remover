@@ -1,0 +1,6 @@
+com.heytap.cloud
+com.oppo.market
+com.heytap.browser
+com.coloros.themecenter
+com.coloros.compass
+com.oppo.hotapps
