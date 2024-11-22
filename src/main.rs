@@ -1,6 +1,9 @@
 use std::fs;
 use std::io;
 use std::process::Command;
+use ctrlc;
+use std::thread;
+use std::time;
 
 const BANNER: &str =
     "
@@ -29,6 +32,31 @@ const BANNER: &str =
  ~ Made By Junaid (abujuni.dev)
                                                                                                    
 ";
+
+fn simple_sleep(dur: u64) {
+    let ten_millis = time::Duration::from_millis(dur);
+    let now = time::Instant::now();
+    thread::sleep(ten_millis);
+    assert!(now.elapsed() >= ten_millis);
+}
+
+fn clear_screen() {
+    if cfg!(target_os = "windows") {
+        Command::new("cmd").args(&["/C", "cls"]).status().expect("Failed to clear screen");
+    } else {
+        Command::new("clear").status().expect("Failed to clear screen");
+    }
+}
+
+fn ctrl_c_error_handler() {
+    ctrlc
+        ::set_handler(move || {
+            println!("\nExiting...");
+            simple_sleep(800);
+            std::process::exit(0);
+        })
+        .expect("Error setting Ctrl-C handler");
+}
 
 fn command_exc(command: &str) {
     let output = if cfg!(target_os = "windows") {
@@ -98,6 +126,9 @@ fn app() {
 }
 
 fn main() {
+    clear_screen();
     println!("{}", BANNER);
+
+    ctrl_c_error_handler();
     app();
 }

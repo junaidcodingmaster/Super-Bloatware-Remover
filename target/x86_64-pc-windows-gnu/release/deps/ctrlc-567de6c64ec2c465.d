@@ -1,0 +1,11 @@
+/workspaces/Super-Bloatware-Remover/target/x86_64-pc-windows-gnu/release/deps/libctrlc-567de6c64ec2c465.rmeta: /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/error.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/windows/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/signal.rs
+
+/workspaces/Super-Bloatware-Remover/target/x86_64-pc-windows-gnu/release/deps/libctrlc-567de6c64ec2c465.rlib: /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/error.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/windows/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/signal.rs
+
+/workspaces/Super-Bloatware-Remover/target/x86_64-pc-windows-gnu/release/deps/ctrlc-567de6c64ec2c465.d: /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/error.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/windows/mod.rs /home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/signal.rs
+
+/home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/lib.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/error.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/mod.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/platform/windows/mod.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ctrlc-3.4.5/src/signal.rs:
