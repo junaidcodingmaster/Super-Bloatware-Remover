@@ -1,1 +1,0 @@
-/workspaces/Super-Bloatware-Remover/target/x86_64-pc-windows-gnu/release/Super_Bloatware_Remover.exe: /workspaces/Super-Bloatware-Remover/build.rs /workspaces/Super-Bloatware-Remover/src/main.rs /workspaces/Super-Bloatware-Remover/version.rc
