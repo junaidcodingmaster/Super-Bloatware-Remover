@@ -12,19 +12,19 @@ This tool is very powerful, even without rooting your device. Only remove apps t
 
 The tool has been tested on the following devices:
 
-| Device   | Brand   | Status    |
-| -------- | ------- | --------- |
-| Y16-64GB | Vivo    | ✅ - PASS |
-| Y16-32GB | Vivo    | ✅ - PASS |
-| M04      | Samsung | ✅ - PASS |
+| Device          | Brand | Status    |
+| --------------- | ----- | --------- |
+| Y16-64GB        | Vivo  | ✅ - PASS |
+| Y16-32GB        | Vivo  | ✅ - PASS |
+| A5 CPH1909 32GB | Oppo  | ✅ - PASS |
 
 ---
 
 ## How To Use
 
 1. Download and connect your phone via ADB. Refer to our detailed [Guide to Download, Open ADB on Windows, and Check Device Connection](#guide-to-download-open-adb-on-windows-and-check-device-connection).
-2. Download `pkgs.zip` and `Super-Bloatware-Remove-v1.0.exe` from the latest release. You can also download the entire repository, which contains the `pkgs` folder and the main application.
-3. Run `Super-Bloatware-Remove-v1.0.exe`.
+2. Download `pkgs.zip` and `Super-Bloatware-Remove-vX.X.exe` from the latest release. You can also download the entire repository, which contains the `pkgs` folder and the main application.
+3. Run `Super-Bloatware-Remove-vX.X.exe`.
 4. When prompted for the **pkgs path**, provide the path to your `pkgs.txt` file.
 5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `C:\platform-tools`).
 
@@ -95,9 +95,9 @@ The `pkgs.txt` file is flexible, allowing you to add your own bloatware apps or 
 
 ---
 
-### Step 5: Run Super-Bloatware-Remove-v1.0.exe
+### Step 5: Run Super-Bloatware-Remove-vX.X.exe
 
-1. Locate and run **Super-Bloatware-Remove-v1.0.exe** on your computer.
+1. Locate and run **Super-Bloatware-Remove-vX.X.exe** on your computer.
 2. Follow the on-screen prompts:
    - **Pkgs Path**: Enter the path to your `pkgs.txt` file.
    - **ADB Path**: Enter the full path to your ADB folder (e.g., `C:\platform-tools`).
