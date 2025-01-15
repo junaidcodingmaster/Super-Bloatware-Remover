@@ -1,6 +1,8 @@
 [package]
 name = "Super_Bloatware_Remover"
 version = "1.0.0"
+authors = ["Junaid <junaid@abujuni.dev>",]
 edition = "2021"
 
 [dependencies]
+ctrlc="3.4.5"
