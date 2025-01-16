@@ -23,7 +23,7 @@ The tool has been tested on the following devices:
 ## How To Use
 
 1. Download and connect your phone via ADB. Refer to our detailed [Guide to Download, Open ADB on Windows, and Check Device Connection](#guide-to-download-open-adb-on-windows-and-check-device-connection).
-2. Download `pkgs.zip` and `Super-Bloatware-Remove-vX.X.exe` from the latest release. You can also download the entire repository, which contains the `pkgs` folder and the main application.
+2. Download `Super-Bloatware-Remover-vX.X.zip` from the latest release. You can also download the entire repository, which contains the `pkgs` folder and the main application.
 3. Run `Super-Bloatware-Remove-vX.X.exe`.
 4. When prompted for the **pkgs path**, provide the path to your `pkgs.txt` file.
 5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `C:\platform-tools`).
@@ -46,8 +46,8 @@ The `pkgs.txt` file is flexible, allowing you to add your own bloatware apps or 
 - Write each app's package name on a new line.
 - Example:
   ```
-  com.google.android.youtube  // YouTube app
-  com.facebook.appmanager     // Facebook App Manager
+  com.google.android.youtube
+  com.facebook.appmanager
   ```
 
 ### How to Find and Add More Bloatware Apps:
