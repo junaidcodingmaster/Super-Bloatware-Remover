@@ -16,7 +16,7 @@ The tool has been tested on the following devices:
 | --------------- | ----- | --------- |
 | Y16-64GB        | Vivo  | ✅ - PASS |
 | Y16-32GB        | Vivo  | ✅ - PASS |
-| A5 CPH1909 32GB | Oppo  | ✅ - PASS |
+| A5 CPH1909 32GB | Oppo  | ❌- FAILL |
 
 ---
 
