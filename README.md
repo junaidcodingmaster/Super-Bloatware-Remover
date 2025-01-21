@@ -16,17 +16,39 @@ The tool has been tested on the following devices:
 | --------------- | ----- | --------- |
 | Y16-64GB        | Vivo  | ✅ - PASS |
 | Y16-32GB        | Vivo  | ✅ - PASS |
-| A5 CPH1909 32GB | Oppo  | ❌- FAILL |
+| A5 CPH1909 32GB | Oppo  | ❌ - FAIL |
+
+## Supported Platforms
+
+| OS      | Status |
+| ------- | ------ |
+| WINDOWS | ✅     |
+| LINUX   | ✅     |
+| MACOS   | ❌     |
+
+**Via Termux** - You need to use wireless debugging (supported for Android 10 and above):
+| OS        | Status |
+| --------- | ------ |
+| ANDROID 10+ | ✅   |
+| IOS       | ✅     |
 
 ---
 
 ## How To Use
 
+## WINDOWS
 1. Download and connect your phone via ADB. Refer to our detailed [Guide to Download, Open ADB on Windows, and Check Device Connection](#guide-to-download-open-adb-on-windows-and-check-device-connection).
 2. Download `Super-Bloatware-Remover-vX.X.zip` from the latest release. You can also download the entire repository, which contains the `pkgs` folder and the main application.
 3. Run `Super-Bloatware-Remove-vX.X.exe`.
 4. When prompted for the **pkgs path**, provide the path to your `pkgs.txt` file.
-5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `C:\platform-tools`).
+5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `C:\platform-tools`) or just type `adb` , if it exist in `PATH` var.
+
+## LINUX
+1. Download and connect your phone via ADB. Refer to our detailed [Guide to Download, Open ADB on Windows, and Check D>
+2. Download `Super-Bloatware-Remover-vX.X.zip` from the latest release. You can also download the entire repository, w>
+3. Run `Super-Bloatware-Remove-vX.X.exe`.
+4. When prompted for the **pkgs path**, provide the path to your according to your phone brand `pkgs.txt` file (like : `./pkgs/vivo/pkgs.txt`).
+5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `./platform-tools`) or just type `adb`,if it exist in `PATH` var.
 
 ---
 
@@ -95,7 +117,7 @@ The `pkgs.txt` file is flexible, allowing you to add your own bloatware apps or 
 
 ---
 
-### Step 5: Run Super-Bloatware-Remove-vX.X.exe
+### Step 5: Run Super-Bloatware-Remove -vX.X.exe
 
 1. Locate and run **Super-Bloatware-Remove-vX.X.exe** on your computer.
 2. Follow the on-screen prompts:
@@ -111,6 +133,23 @@ The `pkgs.txt` file is flexible, allowing you to add your own bloatware apps or 
   - Reconnecting the USB cable.
   - Updating your USB drivers.
   - Toggling USB debugging off and back on in your device settings.
+
+---
+
+## Build
+
+Do you want to build this app on your computer , due to hardware compatible issues then follow these steps:
+1. Clone this repo and change dir
+```
+git clone https://github.com/junaidcodingmaster/Super-Bloatware-Remover.git
+cd Super-Bloatware-Remover
+```
+2. Install requriments and Build it
+```
+./build.sh --install
+./build.sh --build
+```
+Befour building read detailled documentation of build script - [Build Script Documentation](./BUILD.md)
 
 ---
 

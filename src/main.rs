@@ -2,65 +2,87 @@ use std::fs;
 use std::io;
 use std::process::Command;
 use ctrlc;
+use std::time::Duration;
+use std::thread;
 
-const BANNER: &str =
-    "
-███████╗██╗   ██╗██████╗ ███████╗██████╗                                    
-██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗                                   
-███████╗██║   ██║██████╔╝█████╗  ██████╔╝                                   
-╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗                                   
-███████║╚██████╔╝██║     ███████╗██║  ██║                                   
-╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝                                   
-                                                                            
+const BANNER: &str = "
+███████╗██╗   ██╗██████╗ ███████╗██████╗
+██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗
+███████╗██║   ██║██████╔╝█████╗  ██████╔╝
+╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
+███████║╚██████╔╝██║     ███████╗██║  ██║
+╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
+
 ██████╗ ██╗      ██████╗  █████╗ ████████╗██╗    ██╗ █████╗ ██████╗ ███████╗
 ██╔══██╗██║     ██╔═══██╗██╔══██╗╚══██╔══╝██║    ██║██╔══██╗██╔══██╗██╔════╝
 ██████╔╝██║     ██║   ██║███████║   ██║   ██║ █╗ ██║███████║██████╔╝█████╗  
 ██╔══██╗██║     ██║   ██║██╔══██║   ██║   ██║███╗██║██╔══██║██╔══██╗██╔══╝  
 ██████╔╝███████╗╚██████╔╝██║  ██║   ██║   ╚███╔███╔╝██║  ██║██║  ██║███████╗
 ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
-                                                                            
-██████╗ ███████╗███╗   ███╗ ██████╗ ██╗   ██╗███████╗██████╗                
-██╔══██╗██╔════╝████╗ ████║██╔═══██╗██║   ██║██╔════╝██╔══██╗               
-██████╔╝█████╗  ██╔████╔██║██║   ██║██║   ██║█████╗  ██████╔╝               
-██╔══██╗██╔══╝  ██║╚██╔╝██║██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗               
-██║  ██║███████╗██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║               
-╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝               
-                                                                             
+
+██████╗ ███████╗███╗   ███╗ ██████╗ ██╗   ██╗███████╗██████╗
+██╔══██╗██╔════╝████╗ ████║██╔═══██╗██║   ██║██╔════╝██╔══██╗
+██████╔╝█████╗  ██╔████╔██║██║   ██║██║   ██║█████╗  ██████╔╝
+██╔══██╗██╔══╝  ██║╚██╔╝██║██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
+██║  ██║███████╗██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
+╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
+
+v1.2.3
 
  ~ Made By Junaid (abujuni.dev)
-                                                                                                   
 ";
+
+static mut ADB_IS_GLOBAL: bool = false;
+
+fn simple_sleep(milliseconds: u64) {
+    thread::sleep(Duration::from_millis(milliseconds));
+}
 
 fn clear_screen() {
     if cfg!(target_os = "windows") {
-        Command::new("cmd").args(&["/C", "cls"]).status().expect("Failed to clear screen");
+        Command::new("cmd")
+            .args(&["/C", "cls"])
+            .status()
+            .expect("Failed to clear screen");
     } else {
-        Command::new("clear").status().expect("Failed to clear screen");
+        Command::new("clear")
+            .status()
+            .expect("Failed to clear screen");
     }
 }
 
 fn ctrl_c_error_handler() {
-    ctrlc
-        ::set_handler(move || {
-            println!("\nExiting...");
-            simple_sleep(800);
-            std::process::exit(0);
-        })
-        .expect("Error setting Ctrl-C handler");
+    ctrlc::set_handler(move || {
+        println!("\nExiting...");
+        simple_sleep(800);
+        std::process::exit(0);
+    })
+    .expect("Error setting Ctrl-C handler");
 }
 
-fn command_exc(command: &str) {
+fn command_exc(mut command: String) {
+    unsafe {
+        if ADB_IS_GLOBAL {
+            command = "adb".to_string();
+        }
+    }
+
     let output = if cfg!(target_os = "windows") {
-        Command::new("cmd").args(["/C", command]).output().expect("Failed to execute process")
+        Command::new("cmd")
+            .args(["/C", &command])
+            .output()
+            .expect("Failed to execute process")
     } else {
-        Command::new("sh").arg("-c").arg(command).output().expect("Failed to execute process")
+        Command::new("sh")
+            .arg("-c")
+            .arg(&command)
+            .output()
+            .expect("Failed to execute process")
     };
 
-    // Convert stdout and stderr to strings
     let stdout = String::from_utf8_lossy(&output.stdout);
     let stderr = String::from_utf8_lossy(&output.stderr);
 
-    // Print command output
     println!("Command Exec > {}", command);
     if !stdout.is_empty() {
         println!("Output: {}", stdout);
@@ -88,7 +110,7 @@ fn super_delete(adb_path: &str, pkg: &str) {
     ];
 
     for command in commands {
-        command_exc(&command);
+        command_exc(command);
     }
 }
 
@@ -97,18 +119,33 @@ fn app() {
     let mut pkgs_file_path = String::new();
 
     println!();
-    println!("Enter adb.exe file full path:");
-    io::stdin().read_line(&mut adb_file_path).expect("ERROR: Unable to read input!");
+    if cfg!(target_os = "windows") {
+        println!("Enter adb.exe path (or 'adb' if it is in PATH):");
+    } else {
+        println!("Enter adb binary path (or 'adb' if it is in PATH):");
+    }
+
+    io::stdin()
+        .read_line(&mut adb_file_path)
+        .expect("ERROR: Unable to read input!");
     let adb_file_path = adb_file_path.trim().replace('"', "").to_string();
 
     println!();
     println!("Enter pkg.txt file full path:");
-    io::stdin().read_line(&mut pkgs_file_path).expect("ERROR: Unable to read input!");
+    io::stdin()
+        .read_line(&mut pkgs_file_path)
+        .expect("ERROR: Unable to read input!");
     let pkgs_file_path = pkgs_file_path.trim().to_string();
 
     let package_names = read_file(&pkgs_file_path);
 
     println!("LOGS :\n");
+    unsafe {
+        if adb_file_path == "adb" {
+            ADB_IS_GLOBAL = true;
+        }
+    }
+
     for pkg in package_names {
         if !pkg.is_empty() {
             super_delete(&adb_file_path, &pkg);
