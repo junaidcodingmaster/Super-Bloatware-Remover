@@ -44,11 +44,33 @@ The tool has been tested on the following devices:
 5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `C:\platform-tools`) or just type `adb` , if it exist in `PATH` var.
 
 ## LINUX
-1. Download and connect your phone via ADB. Refer to our detailed [Guide to Download, Open ADB on Windows, and Check D>
-2. Download `Super-Bloatware-Remover-vX.X.zip` from the latest release. You can also download the entire repository, w>
-3. Run `Super-Bloatware-Remove-vX.X.exe`.
-4. When prompted for the **pkgs path**, provide the path to your according to your phone brand `pkgs.txt` file (like : `./pkgs/vivo/pkgs.txt`).
-5. When prompted for the **adb path**, paste the full path to your ADB folder (e.g., `./platform-tools`) or just type `adb`,if it exist in `PATH` var.
+
+1. **Download and Connect Your Phone via ADB**:
+   - Ensure that ADB (Android Debug Bridge) is installed on your system.
+   - Connect your Android device to your computer using a USB cable and enable USB debugging on your device.
+
+2. **Download the `Super-Bloatware-Remover` Binary**:
+   - Download the `Super-Bloatware-Remover-vX.X.` binary file from the [releases section](https://github.com/junaidcodingmaster/Super-Bloatware-Remover/releases).
+   - Download the `pkgs.zip` file from the [releases section](https://github.com/junaidcodingmaster/Super-Bloatware-Remover/releases).
+   - Extract pkgs
+
+3. **Run the Super Bloatware Remover**:
+   - Navigate to the directory containing the extracted pkgs files.
+   - Make the binary executable:
+     ```bash
+     chmod +x ./Super-Bloatware-Remover-vX.X
+     ```
+   - Execute the binary:
+     ```bash
+     ./Super-Bloatware-Remover-vX.X
+     ```
+
+4. **Provide Required Paths When Prompted**:
+   - **Pkgs Path**: Enter the path to the `pkgs.txt` file corresponding to your phone's brand. For example:
+     ```
+     ./pkgs/vivo/pkgs.txt
+     ```
+   - **ADB Path**: If ADB is in your system's `PATH`, simply type `adb`. Otherwise, provide the full path to your ADB executable.
 
 ---
 
