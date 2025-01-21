@@ -10,6 +10,23 @@ This tool is highly powerful, even without root access. Only remove apps that yo
 
 ---
 
+## Index
+
+1. [Supported Devices](#supported-devices)
+2. [Supported Platforms](#supported-platforms)
+   - [Desktop Platforms](#desktop-platforms)
+   - [Mobile Platforms](#mobile-platforms-via-termux-with-wireless-debugging)
+3. [How to Use](#how-to-use)
+   - [For Windows](#for-windows)
+   - [For Linux](#for-linux)
+4. [Important Notes](#important-notes)
+5. [Customizing the `pkgs.txt` File](#customizing-the-pkgstxt-file)
+6. [Guide to Download, Open ADB on Windows, and Check Device Connection](#guide-to-download-open-adb-on-windows-and-check-device-connection)
+7. [Troubleshooting Tips](#troubleshooting-tips)
+8. [Building the App](#building-the-app)
+
+---
+
 ## Supported Devices
 
 The tool has been tested on the following devices:
