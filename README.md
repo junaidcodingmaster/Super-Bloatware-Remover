@@ -1,7 +1,7 @@
 # Super Bloatware Remover
 
 Effortlessly remove up to 98% of bloatware apps from your Android device without requiring root access. Developed in [Rust](https://rust-lang.org) for maximum efficiency and reliability.
-
+And it is lightweight.
 ---
 
 ## ⚠️ WARNING
