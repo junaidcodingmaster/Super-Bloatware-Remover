@@ -1,0 +1,11 @@
+com.heytap.cloud
+com.heytap.browser
+com.google.android.apps.nbu.paisa.user
+com.finshell.fin
+com.oppo.usercenter
+com.heytap.store
+com.google.android.keep
+com.redteamobile.roaming
+cn.wps.moffice_eng
+in.amazon.mShop.android.shopping
+com.google.android.apps.youtube.music
